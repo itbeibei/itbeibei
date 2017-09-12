@@ -6,5 +6,8 @@ from django.apps import AppConfig
 
 
 
+
+
+
 class Itbeibeiapp1Config(AppConfig):
     name = 'itbeibeiApp1'
