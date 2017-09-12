@@ -1,0 +1,12 @@
+ <div class="contentBody">
+        {% for i in contentBlog %}
+    	<div class="post">
+            <h2><a title="/" href="/detail/{{ i.id }}" target="_blank" class="readmore">{{i.title}}</a></h2>
+            <span>{{i.created|date:"F   d  , Y"}}</span>
+            <p>
+               {{ i.content|safe|truncatechars:"525" }}
+            </p>
+            <img src="{{i.url_image}}" alt="pic1">
+        </div>
+        {% endfor %}
+ </div>

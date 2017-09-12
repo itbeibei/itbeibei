@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="contentBody">
+
+    	<div class="post">
+            <span>{{blog.created|date:"F   d  , Y"}}</span>
+            <br>
+            <br>
+            <h2 class="title"><a title="/" href="/" target="_blank" >{{blog.title}}</a></h2>
+
+            <br>
+            <br>
+            <p style="text-indent:2em;">
+               {{ blog.content|safe }}
+            </p>
+            <img src="{{blog.url_image}}" alt="pic1">
+        </div>
+      <br>
+      <br>
+       <!--展示评论-->
+       <div class="comments" style="padding-left: 20px;">
+           {% for i in comments %}
+           <div class="media" id="{{i.id}}">
+               <b class="commentname"><a href="#" rel="external nofollow" target="_blank" title="{{i.name}}"><font face="宋体">{{i.name}}</font></a></b><small>&nbsp;发布于&nbsp;{{i.created|date:"Y-m-j f "}}&nbsp;&nbsp;</small><br>
+               <div class="media-body">
+                   <div class="msgarticle"><font face="宋体">{{i.content}}</font><label id="AjaxComment78"></label></div>
+                   <br>
+                   <span class="revertcomment"><a href="#respond" onclick="RevertComment('78')" title="回复">回复</a></span>
+               </div>
+           </div>
+           {% endfor %}
+       </div>
+
+      <br>
+      <br>
+
+       <!--提交评论-->
+      <div class="post1 commentpost">
+          <h3 class="posttop" id="respond">发表评论:<a rel="nofollow" id="cancel-reply" href="#divCommentPost" style="display:none;"><small>取消回复</small></a></h3>
+
+          <form  target="_self" method="post" action="{% url 'blog_get_detail' blog.id %}">
+              {% csrf_token %}
+
+              <label for="name">名称(*)</label>
+              <input  id='name' class="form-control"  type="text" name="name" required id="id_name" maxlength="16" />
+
+              <label for="email">邮箱(*)</label>
+              <input id='email' type="email" name="email" required id="id_email" maxlength="254" class="form-control"/>
+
+              <label for="content">正文(*)</label>
+              <textarea name="content" id="content" class="form-control" cols="60" rows="5" tabindex="5"  maxlength="140" ></textarea>
+              <!--<input id='content' type="text" name="content" required id="id_content" maxlength="140" class="form-control" cols="60" rows="5" tabindex="5" />-->
+              <button type="submit" class="btn btn-default">提交</button>
+          </form>
+          <p class="postbottom">◎欢迎参与讨论，请在这里发表您的看法、交流您的观点。</p>
+      </div>
+
+       <!--<div class="comment-post" style="padding-left: 20px;">-->
+            <!--<h3>提交评论</h3>-->
+            <!--<form action="{% url 'blog_get_detail' blog.id %}" method="post">-->
+                <!--{% csrf_token %}-->
+
+                <!--<div class="input-field" style="padding-top: 10px">-->
+                    <!--{{ form.name.label }}: {{ form.name }}-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash;<div class="input-field" style="padding-top: 10px">&ndash;&gt;-->
+                    <!--{{ form.email.label }}: {{ form.email }}-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--<div class="input-field" style="padding-top: 10px">-->
+                    <!--{{ form.content.label }}: {{ form.content }}-->
+                <!--</div>-->
+
+                <!--<div class="error" style="color: red;">-->
+                    <!--{{ form.errors }}-->
+                <!--</div>-->
+
+
+       <!--</div>-->
+
+
+  </div>
+{% endblock %}
+
+
+
+

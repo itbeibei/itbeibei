@@ -1,0 +1,69 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    body{
+        height: 2500px;
+    }
+        #Div{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            right: 0;
+        }
+        #text{
+            width:400px;
+            height: 30px;
+            position: fixed;
+        }
+    </style>
+    <script type="text/javascript">
+        <!--window.onscroll = function(){-->
+            <!--var div=document.getElementById('Div');-->
+            <!--var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;-->
+            <!--var target=parseInt(scrollTop+(document.documentElement.clientHeight-div.offsetHeight)/2);-->
+            <!--startMove(target);-->
+
+        <!--}-->
+        window.onscroll = function(){
+
+var div=document.getElementById('Div');
+var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+var target=parseInt(scrollTop+(document.documentElement.clientHeight-div.offsetHeight)/2);
+
+}
+
+var timer = startMove(target);
+clearInterval(timer);
+        function startMove(target){
+                var timer=null;
+                var div=document.getElementById('Div');
+                clearInterval(timer);
+                timer=setInterval(function(){
+                    var iSpeed=(target-div.offsetTop)/8;
+                    iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                    var text = document.getElementById('text');
+                        text.value="目标为： "+target+" offsetTop: "+div.offsetTop+ " iSpeed:"+iSpeed;
+
+                    if(div.offsetTop==target)
+                    {
+
+                        clearInterval(timer);
+
+                    }
+                    else{
+                        div.style.top=div.offsetTop+iSpeed+'px';
+                    }
+                },30);
+
+            }
+    </script>
+</head>
+<body>
+    <div id="Div"></div>
+    <input type="text" id="text"/>
+</body>
+</html>

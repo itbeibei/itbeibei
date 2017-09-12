@@ -1,0 +1,133 @@
+@charset "utf-8";
+/* CSS Document */
+* { margin: 0; padding: 0; }
+html { font-size: 100%; }
+body { font-family: "����", serif; font-size: 100%; }
+h1 { color: #363636; font-size: 3.428571428571429em; font-family: 'Fredericka the Great', cursive; font-weight: normal; }
+ul { list-style: none; }
+a img { border: none; }
+a { color: #333; text-decoration: none; }
+a:hover, a:active, a:focus { color: #d34e16; text-decoration: none; }
+img { max-width: 100%; height: auto; width: auto; }
+p { line-height: 140%; }
+.wrapper { width: 93.75%; /* 960px/1024px  */ margin: 0 auto }
+header { border-bottom: #858585 1px solid; overflow: hidden; margin: 10px 0 }
+h1#logo { width: 260px; height: 60px; float: left; overflow: hidden }
+nav { float: right; margin: 20px 0; }
+nav li { display: inline; list-style: none; padding: 1px; }
+nav li a { display: inline; color: #fff; text-shadow: none; background: #333; padding: 8px 10px; }
+nav li a:hover, nav #active a { background: #5CAAAE; color: #ffffff; }
+.banner { background: url(../images/banner_top.jpg) center top no-repeat #e7e7e7; overflow: hidden; position: relative; font-size: 14px }
+.headerPic { width: 130px; height: 130px; border-radius: 100%; overflow: hidden; border: #FFF 4px solid; float: left; margin: 40px }
+.headerPic a { display: block; padding-top: 97px; width: 160px; background: url(../images/photos2.jpg) no-repeat; background-size: 130px 130px; }
+.headerPic a span { display: block; margin-top: 63px; padding-top: 8px; width: 130px; height: 55px; font-size: 12px; text-align: center; line-height: 20px; color: #fff; background: rgba(0, 0, 0, .5); -webkit-transition: margin-top .2s ease-in-out; -moz-transition: margin-top .2s ease-in-out; -o-transition: margin-top .2s ease-in-out; transition: margin-top .2s ease-in-out; }
+.headerPic a:hover span { display: block; margin-top: 0; }
+.websiteDescription { position: absolute; top: 20%; left: 0; background: rgba(92,170,174,.8); color: white; opacity: 0; -webkit-transition: opacity .75s ease-out; -moz-transition: opacity .75s ease-out; -o-transition: opacity .75s ease-out; transition: opacity .75s ease-out; padding: 20px }
+.websiteDescription:hover { opacity: 1; }
+.websiteDescription h2 { color: #FFF; font-size: 16px; margin-bottom: 10px }
+.mainContent { margin: 20px 0; float: left; width: 72.91666666666667%; /* 700px/960px  */ }
+h2.title_tj { font: 18px "΢���ź�", Arial, Helvetica, sans-serif; color: #444; font-weight: bold; background: url(../images/h_line.jpg) repeat-x 20px center; }
+h2.title_tj span { color: #ff8986 }
+h2.title_tj p { background: #fff; width: 90px }
+.bloglist h3 { border-bottom: 1px solid #858585; font-size: 1.2em; padding-bottom: 5px; margin: 20px 0; }
+.bloglist h3, .dateview { clear: both; }
+.bloglist ul p { color: #666; font-size: 14px; line-height: 26px }
+.dateview { margin: 10px 0; clear: both; overflow: hidden; background: #f6f6f6 url(../images/time.jpg) 5px center no-repeat; line-height: 26px; height: 26px; color: #838383; padding-left: 20px; font-size: 12px }
+.dateview span { margin: 0 5px; }
+.dateview span a { color: #099B43; }
+a.readmore { color: #028CC2; float: right; padding-right: 5px }
+.sidebar { margin: 20px 0 0 75%; /* 720px/960px  */ font-size: 14px }
+.news h3 { font-size: 14px; background: url(../images/r_title_bg.jpg) repeat-x center }
+.news h3 p { background: #fff; width: 70px }
+.news h3 span { color: #65b020 }
+.news h3.ph span { color: #37ccca; }
+.news h3.links span { color: #F17B6B; }
+.news ul { margin-bottom: 20px }
+.news ul li a:hover { text-decoration: underline }
+.rank li { height: 25px; line-height: 25px; clear: both; padding-left: 5px; overflow: hidden; padding-left: 15px; background: url(../images/li.jpg) no-repeat left center; }
+.rank { margin: 10px 0; overflow: hidden; }
+.rank li a { color: #333; }
+.paih { background: url(../images/ph.jpg) no-repeat left 8px; margin: 10px 0 }
+.paih li { line-height: 30px; height: 30px; overflow: hidden; padding-left: 24px; border-bottom: #CCC dotted 1px }
+.website { margin: 10px 0; background: #F3F3F3; border-radius: 50%; text-align: center; }
+.website li { line-height: 26px; text-shadow: #fff 1px 1px 1px; height: 26px; }
+.weixin img { margin: 10px auto; display: block }
+.guanzhu { overflow: hidden; margin-top: 20px; color: #000; text-align: center }
+.guanzhu span { color: #65B020; font-weight: bold; font-size: 14px; }
+.pc {
+    width: 34px;
+    height: 34px;
+    border: 1px solid #e1e2e3;
+    cursor: pointer;
+    padding: 5px 14px;
+    margin: 4px;
+    color: blue;
+}
+.pc:hover{
+    background: #f2f8ff;
+    border: 1px solid #38f;
+
+}
+.pc1 {
+    width: 34px;
+    height: 34px;
+
+
+    padding: 5px 14px;
+
+    color: black;
+    font-weight:bold;
+}
+.n {
+    height: 34px;
+    padding: 5px 18px;
+    border: 1px solid #e1e2e3;
+}
+.n:hover{
+    background: #f2f8ff;
+    border: 1px solid #38f;
+}
+
+.n1{
+    height: 34px;
+    padding: 5px 18px;
+    color: black;
+    font-weight:bold;
+}
+.ccc{
+     width: 1366px;
+    height: 50px;
+    padding: 0px 276px;
+}
+footer { background: #f3f3f3; margin-top: 20px; }
+footer ul { padding: 10px 0; text-align: center; }
+footer a { text-decoration: underline; }
+.clearfloat { clear: both; height: 0; line-height: 0px; }
+/*********************************Begin Media Queries****************************************/
+/**************************/
+/* for 960px or less */
+@media screen and (max-width: 960px) {
+.wrapper { width: 93.75%; /* 960px/1024px  */ margin: 0 auto; }
+.websiteDescription { margin-left: 0; }
+}
+/* for 768px or less */
+@media screen and (max-width: 768px) {
+.mainContent { float: none; width: auto; }
+.sidebar { margin: 0; }
+h1#logo { float: none }
+nav { float: none; }
+nav li { display: block; list-style: none; padding: 1px; text-align: center; }
+nav li a { display: block; }
+}
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+h1#logo { float: none }
+nav { float: none; }
+nav li { display: block; list-style: none; padding: 1px; text-align: center; }
+nav li a { display: block; }
+}
+@media (min-width: 981px) {
+.websiteDescription { margin-left: 400px }
+.bloglist figure { float: left; width: 233px; margin-right: 20px; margin-bottom: 10px; }
+.bloglist figure img { padding: 4px; border: #f4f2f2 1px solid; width: 225px; }
+}

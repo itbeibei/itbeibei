@@ -1,0 +1,124 @@
+{% load static %}
+<html>
+<head>
+<meta charset="utf-8">
+<title>君已千殇的个人博客</title>
+<meta name="keywords" content="个人技术分享博客" />
+<meta name="description" content="Python,Mysql,django技术分享" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="{%static 'js/modernizr.js' %}"></script>
+<![endif]-->
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <h1 id="logo"><a href="/"><img src="{% static 'images/logo.jpg' %}" width="260" height="60" alt="个人博客"></a></h1>
+    <nav>
+      <ul>
+        <li id="active"><a href="/">网站首页</a></li>
+        <li><a href="">关于我</a></li>
+        <li><a href="">慢生活</a></li>
+        <li><a href="">碎言碎语</a></li>
+        <li><a href="">模板分享</a></li>
+        <li><a href="">学无止境</a></li>
+        <li><a href="">留言版</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <div class="headerPic"><a href="/"><span>个人博客</span></a></div>
+    <div class="websiteDescription">
+      <h2>渡人如渡己，渡已，亦是渡</h2>
+      <p>当我们被误解时，会花很多时间去辩白。 但没有用，没人愿意听，大家习惯按自己的所闻、理解做出判别，每个人其实都很固执。与其努力且痛苦的试图扭转别人的评判，不如默默承受，给大家多一点时间和空间去了解。而我们省下辩解的功夫，去实现自身更久远的人生价值。其实，渡人如渡己，渡已，亦是渡人。</p>
+    </div>
+  </div>
+
+  <div class="mainContent">
+    <h2 class="title_tj">
+      <p>文章<span>推荐</span></p>
+    </h2>
+      <div class="bloglist">
+      {% for i in posts %}
+      <h3>{{ i.title }}</h3>
+          <figure><img src="{{i.url_image}}"></figure>
+      <ul>
+          <p>{{ i.content|safe|truncatechars:"525" }}</p>
+      </ul>
+      <div class="dateview"><a title="/" href="/detail/{{ i.id }}" target="_blank" class="readmore">阅读全文>></a><span>{{i.created|date:"Y-m-d f"}}</span><span>作者：{{i.author}}</span><span>个人博客：[<a href="/news/life/">程序人生</a>]</span></div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="news">
+      <h3>
+        <p>最新<span>文章</span></p>
+      </h3>
+      <ul class="rank">
+          {% for j in bloglist %}
+              <li><a href="{{j.url_name}}" title="Column 三栏布局 个人网站模板" target="_blank">{{j.title}}</a></li>
+          {% endfor %}
+      </ul>
+      <h3 class="ph">
+        <p>点击<span>排行</span></p>
+      </h3>
+      <ul class="paih">
+        <li><a href="/" title="Column 三栏布局 个人网站模板" target="_blank">Column 三栏布局 个人网站模板</a></li>
+        <li><a href="/" title="withlove for you 个人网站模板" target="_blank">with love for you 个人网站模板</a></li>
+        <li><a href="/" title="免费收录网站搜索引擎登录口大全" target="_blank">免费收录网站搜索引擎登录口大全</a></li>
+        <li><a href="/" title="做网站到底需要什么?" target="_blank">做网站到底需要什么?</a></li>
+        <li><a href="/" title="企业做网站具体流程步骤" target="_blank">企业做网站具体流程步骤</a></li>
+      </ul>
+      <h3 class="links">
+        <p>友情<span>链接</span></p>
+      </h3>
+      <ul class="website">
+        <li><a href="http://code.ziqiangxuetang.com/" target="blank">自强学堂</a></li>
+        <li><a href="http://www.w3school.com.cn/"  target="blank">W3CSchool</a></li>
+        <li><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></li>
+        <li><a href="https://www.oschina.net/" target="_blank">开源中国</a></li>
+      </ul>
+      <div class="guanzhu">扫描二维码关注<span>君已千殇博客</span>官方微信账号</div>
+      <a href="/" class="weixin"><img src="{% static 'images/weixin.jpg' %}"></a> </div>
+  </div>
+  <div class="clearfloat"></div>
+
+    <div class="ccc">
+        {% ifequal curPage 1 %}
+            <span  class="n1"><上一页</span>
+            {% else %}
+            <a href="?curPage={{ curPage|add:"-1"}}" >
+                <span  class="n"><上一页</span>
+            </a>
+        {% endifequal %}
+
+        {% for num in pagelist %}
+            {% ifequal curPage num %}
+                 <span  class="pc1">{{ num }}</span>
+                 {% else %}
+                 <a href="?curPage={{ num }}" ><span class="pc">{{ num }}</span></a>
+            {% endifequal %}
+        {% endfor %}
+
+        {% ifequal curPage allPage %}
+            <span  class="n1">下一页></span>
+            {% else %}
+            <a href="?curPage={{ curPage|add:"1" }}" >
+                <span  class="n">下一页></span>
+            </a>
+        {% endifequal %}
+    </div>
+
+
+</body>
+  <footer>
+    <ul>
+      Powered by <a href="/" title="冯国全个人博客">君已千殇</a>
+    </ul>
+  </footer>
+</div>
+
+</html>

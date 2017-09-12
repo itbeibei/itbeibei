@@ -1,0 +1,108 @@
+{% load static %}
+
+<!--
+AUTHOR
+Design and code by: http://www.free-responsive-templates.com
+Free stock photos by: http://free-responsive-templates.com/category/free-stock-photos/
+Created: 17 September 2012
+
+LICENSE
+Released for free under a Creative Commons Attribution 3.0 Unported License (CC BY 3.0)
+http://creativecommons.org/licenses/by/3.0/
+License: http://free-responsive-templates.com/license/
+
+SUPPORT
+E-mail: free.responsive.templates@gmail.com
+Contact: http://free-responsive-templates.com/contact/
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feng's Personal Blog</title>
+<link href='http://fonts.googleapis.com/css?family=Coda|Oranienbaum|Amarante' rel='stylesheet' type='text/css'>
+<link href="{% static 'css/styles.css' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script>
+	 // DOM ready
+	 $(function() {
+	   
+      // Create the dropdown base
+      $("<select />").appendTo("nav");
+      
+      // Create default option "Go to..."
+      $("<option />", {
+         "selected": "selected",
+         "value"   : "",
+         "text"    : "Select a page"
+      }).appendTo("nav select");
+      
+      // Populate dropdown with menu items
+      $("nav a").each(function() {
+       var el = $(this);
+       $("<option />", {
+           "value"   : el.attr("href"),
+           "text"    : el.text()
+       }).appendTo("nav select");
+      });
+      
+	   // To make dropdown actually work
+      $("nav select").change(function() {
+        window.location = $(this).find("option:selected").val();
+      });
+	 
+	 });
+	</script>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/python">Python</a></li>
+            <li><a href="/django">Django</a></li>
+            <li><a href="/mysql">Mysql</a></li>
+            <li><a href="">Github</a></li>
+        </ul>
+    </nav>    
+</header>
+<div class="wrapper">
+	<h1><a href=''>Time flies and we will stay forever young</a></h1>
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="sidebar">
+        <div class="sBlock">
+        	<h2>Latest Blog</h2>
+            <ul>
+               {% for j in newestBlog %}
+              <li><a href="{{j.url_name}}" title="{{j.title}}" target="_blank">{{j.title}}</a></li>
+               {% endfor %}
+            </ul>
+        </div>
+
+
+        <div class="sBlock">
+        	<h2>Partners</h2>
+            <ul>
+            	<li><a href="http://code.ziqiangxuetang.com/" target="blank">自强学堂</a></li>
+                <li><a href="http://www.w3school.com.cn/"  target="blank">W3CSchool</a></li>
+                <li><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></li>
+                <li><a href="https://www.oschina.net/" target="_blank">开源中国</a></li>
+                <li><a href="http://blog.jobbole.com/" target="_blank">伯乐在线</a></li>
+                <li><a href="http://www.csdn.net/" target="_blank">CSDN论坛</a></li>
+                <li><a href="http://www.hadoopsys.com/" target="_blank">大数据学习社区</a></li>
+                <li><a href="https://www.liaoxuefeng.com/" target="_blank">廖雪峰的官方网站</a></li>
+            </ul>
+        </div>
+    </div> 
+    <div class="clearfloat"></div>
+</div>
+<footer>
+    <p class="copyright">
+        Copyright &copy; <a href="/">Feng</a> | Powered by  <a href="/" title="君已千殇"> 君已千殇 </a>
+    </p>
+</footer>
+</body>
+</html>

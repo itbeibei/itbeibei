@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contentBody">
+    <div class="list">
+        <ul>
+            {% for i in blog %}
+            <li><a href="/detail/{{ i.id }}" target="_blank">{{i.title}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="ccc">
+        <div style="padding:0 32%;">
+            {% ifequal curPage 1 %}
+                <span  class="n1"><上一页</span>
+                {% else %}
+                <a href="?curPage={{ curPage|add:"-1"}}" >
+                    <span  class="n"><上一页</span>
+                </a>
+            {% endifequal %}
+
+            {% for num in pagelist %}
+                {% ifequal curPage num %}
+                     <span  class="pc1">{{ num }}</span>
+                     {% else %}
+                     <a href="?curPage={{ num }}" ><span class="pc">{{ num }}</span></a>
+                {% endifequal %}
+            {% endfor %}
+
+            {% ifequal curPage allPage %}
+                <span  class="n1">下一页></span>
+                {% else %}
+                <a href="?curPage={{ curPage|add:"1" }}" >
+                    <span  class="n">下一页></span>
+                </a>
+            {% endifequal %}
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
